@@ -1,12 +1,12 @@
-package a.a;
- 					// spilrStr1ÎªÎÄ¼şµÄÄÚÈİ
+                     package a.a;
+ 					              // spilrStr1ä¸ºæ–‡ä»¶çš„å†…å®¹
                    //String spilrStr1 = String.valueOf(text);
-                    //ÏÈÓÃ","·Ö¸î³É×Ö·ûÊı×é(º¬".")
+                    //å…ˆç”¨","åˆ†å‰²æˆå­—ç¬¦æ•°ç»„(å«".")
                     String spilrStr2 = StringUtils.join(word1);
-                    //ÓÃ"."·Ö¸î×Ö·ûÊı×é(Ö»Ê£¿Õ¸ñ)
+                    //ç”¨"."åˆ†å‰²å­—ç¬¦æ•°ç»„(åªå‰©ç©ºæ ¼)
                     String[] word2 = spilrStr2.split("\\.");
-                    //×ª»¯Îª×Ö·û´®
+                    //è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
                     String spilrStr3 = StringUtils.join(word2);
-                    //¸ù¾İ¿Õ¸ñ·Ö¿ª
+                    //æ ¹æ®ç©ºæ ¼åˆ†å¼€
                     String[] word3 = spilrStr3.split(" ");
                     String spilrStr4 = StringUtils.join(word3, " ");
