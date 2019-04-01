@@ -32,6 +32,7 @@ public class Main extends JFrame{
 				if(word.length()!=0){
 					list.add(word);
 				}
+				
 			}
 		}
 		buff.close();
