@@ -3,27 +3,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
- 
 public class hangshu 
 {
     public static void main(String[] args)
     {
-    	try{
+    
+     try{
     		File file =new File("src/word.txt");
-    		if(file.exists()){
+    	
+      if(file.exists()){
     		    FileReader fr = new FileReader(file);
     		    LineNumberReader lnr = new LineNumberReader(fr);
     		    int linenumber = 0;
     	            while (lnr.readLine() != null){
     	        	linenumber++;
     	            }
-    	            System.out.println("此文本的行数为：  " + linenumber);
+    	           
+       System.out.println("麓脣脦脛卤戮碌脛脨脨脢媒脦陋拢潞  " + linenumber);
     	            lnr.close();
     		}else{
-    			 System.out.println("File does not exists!");
-    		}
-    	}catch(IOException e){
+    		
+       System.out.println("File does not exists!");
+    	     	}
+      	}catch(IOException e){
     		e.printStackTrace();
-    	}
+    	  }
     }
 }
