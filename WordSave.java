@@ -1,5 +1,4 @@
 package WordTest;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,15 +9,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-
 public class WordSave {
-
 public void sortMapByKeys(Map<String, Integer> Map) throws IOException{  
-		
         Set<Entry<String,Integer>> mapEntries = Map.entrySet();    
         LinkedList<Entry<String, Integer>> List = new LinkedList<Entry<String,Integer>>(mapEntries);
-        
         Collections.sort(List, new Comparator<Entry<String,Integer>>() {  
             @Override  
             public int compare(Entry<String, Integer> ele1,  Entry<String, Integer> ele2) {
@@ -29,7 +23,6 @@ public void sortMapByKeys(Map<String, Integer> Map) throws IOException{
         for(Entry<String,Integer> entry: List) {  
             Map2.put(entry.getKey(), entry.getValue());  
         } 
-        
         File file = new File("src/result.txt");
         	if(file.exists()) {
         		file.createNewFile();
@@ -42,5 +35,3 @@ public void sortMapByKeys(Map<String, Integer> Map) throws IOException{
         	System.out.println("存放成功！");
         }
 	} 
-
-
