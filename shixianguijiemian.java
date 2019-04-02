@@ -7,9 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.HashMap;
 public class shixianguijiemian {
-    private JFrame frame;//¶¨ÒåJframe¿ò¼Ü
-    private FileDialog openFile;//Ä£Ê½¶Ô»°¿ò
-    private JTextArea area;//ÎÄ±¾Óò
+    //å®šä¹‰Jframeæ¡†æ¶
+    private JFrame frame;
+    //æ¨¡å¼å¯¹è¯æ¡†
+    private FileDialog openFile;
+    //æ–‡æœ¬åŸŸ
+    private JTextArea area;
     private JButton button;
     private JButton button1;
     private JLabel label;
@@ -20,19 +23,19 @@ public class shixianguijiemian {
         addEvents();
     }
     public void init() {
-        //new³ö²Ëµ¥µÄ¶ÔÏó
-        frame = new JFrame("²Ëµ¥²âÊÔ");
+        //newå‡ºèœå•çš„å¯¹è±¡
+        frame = new JFrame("èœå•æµ‹è¯•");
         frame.setBounds(500, 400, 400, 400);
         frame.setLayout(null);
-        button = new JButton("Ñ¡ÔñÎÄ¼ş");
+        button = new JButton("é€‰æ‹©æ–‡ä»¶");
         button.setBounds(120, 30, 100, 40);
-        button1 = new JButton("Ö´ĞĞÑ¡´Ê");
+        button1 = new JButton("æ‰§è¡Œé€‰è¯");
         button1.setBounds(120, 100, 100, 40);
-        //ÎÄ±¾Óò
+        //æ–‡æœ¬åŸŸ
         area = new JTextArea(10,5);
         area.setLineWrap(true);
         area.setBounds(20,200,360,100);
-        label=new JLabel("Ö´ĞĞ½á¹û:");
+        label=new JLabel("æ‰§è¡Œç»“æœ:");
         label.setBounds(140,150,100,40);
         frame.add(button);
         frame.add(button1);
@@ -40,7 +43,7 @@ public class shixianguijiemian {
         frame.add(label);
         frame.setVisible(true);
     }
-    //¹Ø±Õ´°Ìå
+    //å…³é—­çª—ä½“
     public void addEvents() {
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -48,17 +51,17 @@ public class shixianguijiemian {
                 System.exit(0);
             }
         });
-        //´ò¿ªÎÄ¼ş
+        //æ‰“å¼€æ–‡ä»¶
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //´´½¨Ò»¸öÎÄ¼ş¶Ô»°¿ò
-                openFile = new FileDialog(frame, "´ò¿ªÎÄ¼ş", FileDialog.LOAD);
+                //åˆ›å»ºä¸€ä¸ªæ–‡ä»¶å¯¹è¯æ¡†
+                openFile = new FileDialog(frame, "æ‰“å¼€æ–‡ä»¶", FileDialog.LOAD);
                 openFile.setVisible(true);
-                //µÃµ½ÎÄ¼şĞÅÏ¢
-                String dirName = openFile.getDirectory();//µ÷ÓÃFileDialog¶ÔÏóµÄgetDirectory()·½·¨£¬µÃµ½StringµÄÄ¿Â¼
-                String fileName = openFile.getFile();//µ÷ÓÃFileDialog¶ÔÏóµÄgetFile()·½·¨£¬µÃµ½StringµÄÎÄ¼şÃû³Æ
-                //¶ÁÈ¡Õ¹Ê¾ÎÄ¼ş
+                //å¾—åˆ°æ–‡ä»¶ä¿¡æ¯
+                String dirName = openFile.getDirectory();//è°ƒç”¨FileDialogå¯¹è±¡çš„getDirectory()æ–¹æ³•ï¼Œå¾—åˆ°Stringçš„ç›®å½•
+                String fileName = openFile.getFile();//è°ƒç”¨FileDialogå¯¹è±¡çš„getFile()æ–¹æ³•ï¼Œå¾—åˆ°Stringçš„æ–‡ä»¶åç§°
+                //è¯»å–å±•ç¤ºæ–‡ä»¶
                 if (dirName == null || fileName == null) {
                     return;
                 }
@@ -66,37 +69,37 @@ public class shixianguijiemian {
                 try {
                     BufferedReader br = new BufferedReader(new FileReader(file));
                     String line;
-                    StringBuilder text = new StringBuilder();//´æ·ÅÎÄ¼şÄÚÈİ
+                    StringBuilder text = new StringBuilder();//å­˜æ”¾æ–‡ä»¶å†…å®¹
                     while ((line = br.readLine()) != null) {
                         text.append(line);
                     }
                     String spilrStr1 = String.valueOf(text);
-                    //ÏÈÓÃ","·Ö¸î³É×Ö·ûÊı×é(º¬".")
+                    //å…ˆç”¨","åˆ†å‰²æˆå­—ç¬¦æ•°ç»„(å«".")
                     String[] word1 = spilrStr1.split(",");
-                    //×Ö·ûÊı×é×ª»¯Îª×Ö·û´®
+                    //å­—ç¬¦æ•°ç»„è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
                     String spilrStr2 = StringUtils.join(word1);
-                    //ÓÃ"."·Ö¸î×Ö·ûÊı×é(Ö»Ê£¿Õ¸ñ)
+                    //ç”¨"."åˆ†å‰²å­—ç¬¦æ•°ç»„(åªå‰©ç©ºæ ¼)
                     String[] word2 = spilrStr2.split("\\.");
-                    //×ª»¯Îª×Ö·û´®
+                    //è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
                     String spilrStr3 = StringUtils.join(word2);
-                    //¸ù¾İ¿Õ¸ñ·Ö¿ª
+                    //æ ¹æ®ç©ºæ ¼åˆ†å¼€
                     String[] word3 = spilrStr3.split(" ");
                     String spilrStr4 = StringUtils.join(word3, " ");
-                    //°´×ÖµäÊä³ö
+                    //æŒ‰å­—å…¸è¾“å‡º
                     String[] sortword = Sort(word3);
-                    //Í³¼Æµ¥´Ê³öÏÖµÄÆµÂÊ
+                    //ç»Ÿè®¡å•è¯å‡ºç°çš„é¢‘ç‡
                     HashMap<String, Integer> map = new HashMap();
                     for (String str : sortword) {
-                        if (!map.containsKey(str)) {//µ±str²»´æÔÚ,
+                        if (!map.containsKey(str)) {//å½“strä¸å­˜åœ¨,
                             map.put(str, 1);
                         } else {
-                            //·ñÔò»ñµÃcµÄÖµ²¢ÇÒ¼Ó1
+                            //å¦åˆ™è·å¾—cçš„å€¼å¹¶ä¸”åŠ 1
                             map.put(str, map.get(str) + 1);
                         }
-                        //System.out.println(str + "³öÏÖµÄ´ÎÊıÎª:" + map.get(str)+"´Î");
+                        //System.out.println(str + "å‡ºç°çš„æ¬¡æ•°ä¸º:" + map.get(str)+"æ¬¡");
                     }
                     hashMap=map;
-//                    //½á¹ûĞ´ÈëÎÄ¼ş
+//                    //ç»“æœå†™å…¥æ–‡ä»¶
 //                    String filestr = String.valueOf(map);
 //                    BufferedWriter writer = new BufferedWriter(new FileWriter("D://out.txt"));
 //                    writer.write(filestr);
@@ -107,15 +110,14 @@ public class shixianguijiemian {
             }
         });
         button1.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Ğ´ÈëÊı¾İ¿â
+                //å†™å…¥æ•°æ®åº“
                 Conn conn = new Conn();
                 Connection connection = null;
                 try {
                     connection = conn.getCon();
-                    System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+                    System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
                     for (String key : hashMap.keySet()) {
                         psql = connection.prepareStatement("insert into words(wordName,counts) values(?,?)");
                         psql.setString(1, key);
@@ -124,7 +126,7 @@ public class shixianguijiemian {
                     }
                     psql.close();
                     connection.close();
-                    System.out.println("Êı¾İ¿â´æ·Å³É¹¦!");
+                    System.out.println("æ•°æ®åº“å­˜æ”¾æˆåŠŸ!");
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
@@ -135,7 +137,7 @@ public class shixianguijiemian {
             }
         });
     }
-    //°´×ÖµäÊä³ö
+    //æŒ‰å­—å…¸è¾“å‡º
     public String[] Sort(String[] word3) {
         String temp;
         for (int i = 0; i < word3.length; i++) {
