@@ -1,11 +1,11 @@
-//Í³¼Æµ¥´Ê³öÏÖµÄÆµÂÊ
+    //ç»Ÿè®¡å•è¯å‡ºç°çš„é¢‘ç‡
 HashMap<String, Integer> map = new HashMap();
 for (String str : sortword) {
-    if (!map.containsKey(str)) {//µ±str²»´æÔÚ,
+    if (!map.containsKey(str)) {//å½“strä¸å­˜åœ¨,
         map.put(str, 1);
     } else {
-        //·ñÔò»ñµÃcµÄÖµ²¢ÇÒ¼Ó1
+        //å¦åˆ™è·å¾—cçš„å€¼å¹¶ä¸”åŠ 1
         map.put(str, map.get(str) + 1);
     }
-    //System.out.println(str + "³öÏÖµÄ´ÎÊıÎª:" + map.get(str)+"´Î");
+    //System.out.println(str + "å‡ºç°çš„æ¬¡æ•°ä¸º:" + map.get(str)+"æ¬¡");
 }
