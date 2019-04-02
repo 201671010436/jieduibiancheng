@@ -1,4 +1,5 @@
 package a.a;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +9,7 @@ import java.util.Map;
 public class tongjidancishumu{
 	private static Map<String, Integer> words = new HashMap<String,Integer>();
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+// TODO Auto-generated method stub
 	String src = "E:/Word.txt";
 	String wenzhang=ReadSrc(src);
 	words = Count(wenzhang);
@@ -18,7 +19,6 @@ public class tongjidancishumu{
 		System.out.println(key);
 		System.out.println(words.get(key));
 	}
-	
 	}
 	public static String ReadSrc(String path) throws IOException{
 		String Src="";
@@ -46,12 +46,12 @@ public class tongjidancishumu{
 		}
 		return Src;
 	}
-	public static Map<String , Integer> Count(String wenzhang){
-		Map<String , Integer> endmap = new HashMap<String , Integer>();
-		String src = wenzhang;
-		src=src.replaceAll(",", " ");
-		src=src.replace(".", " ");
-		String[] ss = src.split(" ");
+public static Map<String , Integer> Count(String wenzhang){
+	Map<String , Integer> endmap = new HashMap<String , Integer>();
+	String src = wenzhang;
+	src=src.replaceAll(",", " ");
+	src=src.replace(".", " ");
+	String[] ss = src.split(" ");
 		for(String s:ss){
 			if(s.toString().trim().length()!=0){
 				if(endmap.containsKey(s)){
